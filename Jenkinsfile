@@ -7,12 +7,12 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/Harshachalla-sudo/sample-app.git'
-            }
-        }
-
+stage('Clone') {
+    steps {
+        git branch: 'main',
+            url: 'https://github.com/Harshachalla-sudo/sample-app.git'
+    }
+}
         stage('Build Docker Image') {
             steps {
                 bat 'docker build -t %IMAGE_NAME% .'
